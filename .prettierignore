@@ -1,0 +1,8 @@
+!.storybook
+!.jest
+node_modules
+package-lock.json
+example
+dist
+build
+src/images
