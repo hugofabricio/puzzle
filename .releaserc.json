@@ -1,14 +1,24 @@
 {
+  "branches": "master",
+  "repositoryUrl": "https://github.com/hugofabricio/puzzle",
+  "debug": "true",
   "plugin": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
-    "@semantic-release/changelog",
-    "@semantic-release/github",
     "@semantic-release/npm",
-    {
-      "path": "@semantic-release/git",
-      "assets": ["package.json", "package-lock.json", "CHANGELOG.md"],
-      "message": "chore(release): ${nextRelease.version} [skyp ci]\n\n${nextRelease.notes}"
-    }
+    "@semantic-release/github",
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md"
+      }
+    ],
+    [
+      "@semantic-release/git",
+      {
+        "assets": ["package.json", "package-lock.json", "CHANGELOG.md"],
+        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+      }
+    ]
   ]
 }
